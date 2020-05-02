@@ -16,7 +16,7 @@ and you are good to go. If you want to install the API to an off-nominal locatio
 
 ## Step 2: Test that C API is running using Test_TF_C code
 
-After Step 1 is complete test that your API is configured correctly by executing the following code (which you can save in `tf_hello_world.cpp`
+After Step 1 is complete test that your API is configured correctly by executing the following code (which you can save in `hello_tf.cpp`
 ```
 //Working on some tensorflow and c++ implementations
 
@@ -37,9 +37,13 @@ to obtain the following output
 ```
 Hello from TensorFlow C library version 1.15.0
 ```
-If you have reached this point - congratulations you are ready to use TensorFlow *within* OpenFOAM 5. 
+If you have reached this point - congratulations you are ready to use TensorFlow 1.15 *within* OpenFOAM 5. 
 
 ## Step 3: Train a model in the TensorFlow Python API
+
+However, before you can run your simulation - you need to train your data-driven turbulence model. For this tutorial we will rely on the approach laid out in [arXiv:1910.10878](https://arxiv.org/pdf/1910.10878) where a deep neural network was utilized to predict steady-state turbulent viscosities of the Spalart-Allmaras (SA) model. The goal of this article was to avoid solving the one-extra equation that SA requires but replace it with a point deep-learning framework for acceleration.
+
+For this step - you need not worry about the training and testing data. They are available [here]() and correspond to inputs of initial conditions, mesh coordinates and step height and outputs of the steady-state turbulent viscosity. Note that this corresponds to <dl><a href="https://www.codecogs.com/eqnedit.php?latex=\mathbb{M}_1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\mathbb{M}_1" title="\mathbb{M}_1" /></a></dl> in Equation X.X of the article.
 
 ## Step 4: Export model to disk
 
