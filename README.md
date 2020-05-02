@@ -41,9 +41,14 @@ If you have reached this point - congratulations you are ready to use TensorFlow
 
 ## Step 3: Train a model in the TensorFlow Python API
 
+For this step - it is assumed that you have access to Python 3.6.8 with the following dependencies:
+1. Numpy 1.18
+2. TensorFlow 1.15 (this is TensorFlow for the Python training)
+3. Matplotlib
+
 However, before you can run your simulation - you need to train your data-driven turbulence model. For this tutorial we will rely on the approach laid out in [arXiv:1910.10878](https://arxiv.org/pdf/1910.10878) where a deep neural network was utilized to predict steady-state turbulent viscosities of the Spalart-Allmaras (SA) model. The goal of this article was to avoid solving the one-extra equation that SA requires but replace it with a point deep-learning framework for acceleration.
 
-For this step - you need not worry about the training and testing data. They are available [here]() and correspond to inputs of initial conditions, mesh coordinates and step height and outputs of the steady-state turbulent viscosity. Note that this corresponds to <dl><a href="https://www.codecogs.com/eqnedit.php?latex=\mathbb{M}_1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\mathbb{M}_1" title="\mathbb{M}_1" /></a></dl> in Equation X.X of the article.
+For this step - you need not worry about the training and testing data. They are available [here]() and correspond to inputs of initial conditions, mesh coordinates and step height and outputs of the steady-state turbulent viscosity. Note that this corresponds to $M_2$ in Equation X.X of the article. To train this map go to the folder `Training/` and execute the training file by running `python ML_Model.py`. A quick peek inside this python script will tell us several things: the function `load_data` is for load and rescaling data to zero mean and unit variance; the function `get_model` creates a new `tensorflow.keras.model` for a feed-forward neural network and `fit_model` trains this model 
 
 ## Step 4: Export model to disk
 
