@@ -37,7 +37,7 @@ to obtain the following output
 ```
 Hello from TensorFlow C library version 1.15.0
 ```
-If you have reached this point - congratulations you are ready to use TensorFlow 1.15 *within* OpenFOAM 5. 
+If you have reached this point - congratulations you are ready to use TensorFlow 1.15 *within* OpenFOAM 5. You may utilize the individual READMEs from `ML_RANS/` and `ML_LES` (the latter in-progress) to construct a neural network based turbulence model for using in OpenFOAM.
 
 ## Step 3: Train a model in Python
 
