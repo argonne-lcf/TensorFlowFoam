@@ -1,7 +1,7 @@
 # TensorFlowFoam
 A turbulence model built using a deep neural network trained in Tensorflow 1.15.
 
-The following steps will get you started with a data-driven turbulence model deployed in OpenFOAM 5. I am assuming you have already installed and successfully run OpenFOAM 5 prior to this. Visit XX for more information on downloading and installing OpenFOAM 5. Also, this tutorial will be based on Linux (Ubuntu 18.04) at this point of time.
+The following steps will get you started with a data-driven turbulence model deployed in OpenFOAM 5. I am assuming you have already installed and successfully run OpenFOAM 5 prior to this. Also, this tutorial will be based on Linux (Ubuntu 18.04) at this point of time.
 
 While training on the fly is also possible using this procedure - it would need some MPI magic to segregate resources for training and inference at the same time. That is an active topic of research - stay tuned. 
 
@@ -39,31 +39,4 @@ Hello from TensorFlow C library version 1.15.0
 ```
 If you have reached this point - congratulations you are ready to use TensorFlow 1.15 *within* OpenFOAM 5. You may utilize the individual READMEs from `ML_RANS/` and `ML_LES` (the latter in-progress) to construct a neural network based turbulence model for using in OpenFOAM.
 
-## Step 3: Train a model in Python
-
-For this step - it is assumed that you have access to Python 3.6.8 with the following dependencies:
-1. Numpy 1.18
-2. TensorFlow 1.15 (this is TensorFlow for the Python training)
-3. Matplotlib
-
-While the C API of TensorFlow can be used to train models, it is far easier to use the Python API for training and porting a model to OpenFOAM using an immutable set of trained model parameters. 
-
-### Data-driven turbulence modeling framework
-
-However, before you can run your simulation - you need to train your data-driven turbulence model. For this tutorial we will rely on the approach laid out in [arXiv:1910.10878](https://arxiv.org/pdf/1910.10878) where a deep neural network was utilized to predict steady-state turbulent viscosities of the Spalart-Allmaras (SA) model. The goal of this article was to avoid solving the one-extra equation that SA requires but replace it with a point deep-learning framework for acceleration.
-
-For this step - you need not worry about the training and testing data. They are available [here]() and correspond to inputs of initial conditions, mesh coordinates and step height and outputs of the steady-state turbulent viscosity. Note that this corresponds to $M_2$ in Equation X.X of the article. 
-
-### Training and exporting model in Python
-
-To train this map go to the folder `Training/` and execute the training file by running `python ML_Model.py`. A quick peek inside this python script will tell us several things: the function `load_data` is for load and rescaling data to zero mean and unit variance; the function `get_model` creates a new `tensorflow.keras.model` for a feed-forward neural network and `fit_model` trains this model. 
-
-## Step 4: Make modifications to standard OpenFOAM RANS (or LES) model case to call TensorFlow operations
-
-## Step 5: Compile with wmake
-
-## Step 6: Make changes to case 
-
-## Step 7: Make changes to simpleFoam (if needed)
-
-## Step 8: Deploy
+Points of contact for further assistance - Romit Maulik (rmaulik@anl.gov), Himanshu Sharma (himanshu90sharma@gmail.com). This work was performed by using the resources of the Argonne Leadership Computing Facility, a U.S. Department of Energy (Office of Science) user facility at Argonne National Laboratory, Lemont, IL, USA. 
