@@ -5,7 +5,14 @@ The following steps will get you started with a data-driven turbulence model dep
 
 While training on the fly is also possible using this procedure - it would need some MPI magic to segregate resources for training and inference at the same time. That is an active topic of research - stay tuned. 
 
-## Step 1: Download the Tensorflow C API
+## Step 1: Install python environment
+
+We suggest the creation of a new virtual environment (either in conda or venv) and the installation of relevant packages for this tutorial using
+```
+pip install -r requirements.txt
+```
+
+## Step 2: Download the Tensorflow C API
 
 You can download the TensorFlow C API at `https://www.tensorflow.org/install/lang_c`. Follow instructions there to install on your machine. This tutorial/model is designed for the **Linux CPU only** release. Briefly, the instructions to install are:
 
@@ -14,9 +21,9 @@ You can download the TensorFlow C API at `https://www.tensorflow.org/install/lan
 
 and you are good to go. If you want to install the API to an off-nominal location please consult the documentation at the previously mentioned link. 
 
-## Step 2: Test that C API is running using Test_TF_C code
+## Step 3: Test that C API is running using Test_TF_C code
 
-After Step 1 is complete test that your API is configured correctly by executing the following code (which you can save in `hello_tf.cpp`
+After Step 2 is complete test that your API is configured correctly by executing the following code (which you can save in `hello_tf.cpp`
 ```
 //Working on some tensorflow and c++ implementations
 
