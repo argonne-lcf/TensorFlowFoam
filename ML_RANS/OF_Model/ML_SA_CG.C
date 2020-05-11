@@ -156,8 +156,7 @@ ML_SA_CG<BasicTurbulenceModel>::ML_SA_CG
     const surfaceScalarField& phi,
     const transportModel& transport,
     const word& propertiesName,
-    const word& type,
-    int omp_num_threads_
+    const word& type
 )
 :
     eddyViscosity<RASModel<BasicTurbulenceModel>>
@@ -272,16 +271,7 @@ ML_SA_CG<BasicTurbulenceModel>::ML_SA_CG
     MyFilter_
     (
         this->mesh_
-    ),
-    // filterPtr_
-    // (
-    //     LESfilter::New(this->mesh_, this->coeffDict())
-    // ),
-    // filter_
-    // (
-    //     filterPtr_()
-    // ),
-    omp_num_threads_(4)
+    )
     {
         if (type == typeName)
         {
@@ -404,8 +394,6 @@ void ML_SA_CG<BasicTurbulenceModel>::correct()
 template<class BasicTurbulenceModel>
 void ML_SA_CG<BasicTurbulenceModel>::run_ml_graph(double* mean_array, double* std_array, int num_inputs, int num_outputs)
 {
-    omp_set_num_threads(omp_num_threads_);
-
     // Structure for tensors in ML
     int num_cells = this->mesh_.cells().size();
 

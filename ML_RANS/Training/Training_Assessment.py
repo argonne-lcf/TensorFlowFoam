@@ -53,7 +53,7 @@ if __name__ == '__main__':
 
     # Plot feature importances
     variable_names = ['ux','uy','cx','cy','h']
-    imp_array = permutation_importances(model,total_data[:1000,:num_inputs],total_data[:1000,num_inputs:],variable_names)
+    imp_array = permutation_importances(model,total_data[:10000,:num_inputs],total_data[:10000,num_inputs:],variable_names)
     indices = np.argsort(imp_array)[::-1]
     # Plot individual feature importance
     plt.figure(figsize=(12,10))

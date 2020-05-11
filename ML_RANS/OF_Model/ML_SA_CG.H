@@ -69,7 +69,7 @@ protected:
 
     // Protected data
 
-        // Model coefficients
+            // Model coefficients
 
             dimensionedScalar sigmaNut_;
             dimensionedScalar kappa_;
@@ -90,12 +90,6 @@ protected:
 
             // Fields
             volScalarField nuTilda_;
-            // volScalarField umag_;
-            // volScalarField gradu_;
-            // volScalarField gradv_;
-            // volScalarField rot_;
-            // volScalarField vortz_;
-            // volScalarField nut_ml_;
 
             //- Wall distance
             //  Note: different to wall distance in parent RASModel
@@ -104,16 +98,9 @@ protected:
 
             // LES filters
             simpleFilter MyFilter_;
-            // autoPtr<LESfilter> filterPtr_;
-            // LESfilter& filter_;
-
-            // OpenMP num threads
-            int omp_num_threads_;
-
-
             
 
-    // Protected Member Functions
+        // Protected Member Functions
 
         tmp<volScalarField> chi() const;
 
@@ -162,8 +149,7 @@ public:
             const surfaceScalarField& phi,
             const transportModel& transport,
             const word& propertiesName = turbulenceModel::propertiesName,
-            const word& type = typeName,
-            int omp_num_threads_ = 4
+            const word& type = typeName
         );
 
 

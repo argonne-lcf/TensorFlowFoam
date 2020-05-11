@@ -27,7 +27,7 @@ RAS
 
     widthCoeff      4.0; // Incase you use Laplace filter
 
-    hh_             1.0;
+    hh_             1.9;
 }
 
 
