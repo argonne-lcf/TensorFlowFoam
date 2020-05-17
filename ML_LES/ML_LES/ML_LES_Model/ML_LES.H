@@ -24,17 +24,10 @@ License
 Class
     Foam::LESModels::ML_LES
 
-Group
-    grpLESTurbulence
-
 Description
-    Dynamic SGS model with local averaging, based on Germano and Lilly works.
-    
-    An older version of this code had been developed for version 2.3.1 and older by Alberto Passalacqua.
-    
-    The current version has been developed for version 4.1
-
-    Ehsan Asgari, e.asgari@aut.ac.ir
+    Surrogate model where a DL framework predicts Smagorinsky coefficient
+    Author: rmaulik@anl.gov
+    Tested with OpenFOAM 5.0
 
 SourceFiles
     ML_LES.C

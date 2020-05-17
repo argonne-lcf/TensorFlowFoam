@@ -28,7 +28,9 @@ Group
     grpRASTurbulence
 
 Description
-    Openfoam Machine learning model - Romit Maulik
+    Openfoam Machine learning model where DL framework predicts steady-state \nu_t directly
+    Author - rmaulik@anl.gov
+    Argonne Leadership Computing Facility
 
 SourceFiles
     ML_SA_CG.C
