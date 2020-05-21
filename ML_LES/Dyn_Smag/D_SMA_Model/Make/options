@@ -11,6 +11,5 @@ LIB_LIBS = \
     -lturbulenceModels \
     -lfiniteVolume \
     -lmeshTools \
-    -ltensorflow \
     -lstdc++ \
     -fopenmp
