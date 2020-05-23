@@ -176,7 +176,9 @@ void ML_LES<BasicTurbulenceModel>::correct()
     LESeddyViscosity<BasicTurbulenceModel>::correct(); // For changing mesh - coming from turbulenceModel.C through virtual shit
 
     int num_inputs = 9;
-    int num_outputs = 1;  
+    int num_outputs = 1;
+    // The following lines may cause problems with ICPC compilers
+    // convert to "float mean_array [10] = {....};"
     float mean_array [num_inputs+num_outputs] = {4.948654692193851069e-05,-1.416845935576197153e-03,1.695804398322601982e-04,-4.909234209068177434e-05,7.200956380997814788e-04,-3.949331152012949186e-07,1.155548212380012041e-01,-1.447936297672789625e-05,-1.249577196433397854e-05,4.991843687885162174e-03};
     float std_array [num_inputs+num_outputs] = {5.156828074413144503e-02,4.477068164228664160e-01,7.504360316118742491e-02,5.840131322144209713e-02,8.381264536219842909e-02,5.977095870302145258e-02,3.844051667887211921e-02,5.081242374826853286e-03,7.321494585983414141e-03,1.157813043774712919e-02};
 

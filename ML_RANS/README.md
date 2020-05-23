@@ -53,11 +53,7 @@ Now all that is left to do is to run `wclean && wmake libso .` from the `OF_Mode
 
 The original framework in this project required a minor modification to `simpleFoam` to switch turbulence model deployment at each iteration towards steady-state. This is because the machine learning framework has been trained to _predict_ the steady-state turbulent eddy viscosity. To that end, we modify `simpleFoam` to `simpleFoam_ML` to make an eddy-viscosity prediction at `t=0` and then solve only pressure and velocity equations after. Once again, recommended reading for understanding this may be found in [OpenFOAM programming tutorial by Tommaso Lucchini](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=14&cad=rja&uact=8&ved=2ahUKEwjKy6-XvqXpAhVIQ80KHYisDikQFjANegQICRAB&url=http%3A%2F%2Fwww.tfd.chalmers.se%2F~hani%2Fkurser%2FOS_CFD_2009%2FprogrammingTutorial.pdf&usg=AOvVaw2H5hYleW_cI6CN0inVnBWQ).
 
-To create a new version of `simpleFoam` that predicts the eddy viscosity only once and then solves solely pressure and velocity, we have followed the steps in the previous link and have created a new solver saved in `simpleFOAM_ML/`. You may incorporate this model into OpenFOAM as follows:
-1. From `ML_RANS/` copy `simpleFOAM_ML` to `$WM_PROJECT_DIR` by running `cp -r simpleFoam_ML/ $WM_PROJECT_DIR/applications/solvers/simpleFoam_ML`.
-2. Compile this new solver using `cd $WM_PROJECT_DIR/applications/solvers/simpleFoam_ML && wclean && wmake`
-3. Test that the new solver is compiled and ready to use with `simpleFoam_ML -help`
-
+To create a new version of `simpleFoam` that predicts the eddy viscosity only once and then solves solely pressure and velocity, we have followed the steps in the previous link and have created a new solver saved in `simpleFOAM_ML/`. You may incorporate this model into OpenFOAM by running `wclean && wmake` from the `simpleFoam_ML` directory. Validate that your solver works fine by running `simpleFoam_ML -help`.
 ## Step 5: Deploy for test case
 
 Finally, now that a new solver and a new turbulence model are ready to deploy. We can run a case to test them. This case is provided in `Testing/`. To run the case successfully, we have made a few changes to incorporate the new solver and the neural network model. These are
