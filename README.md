@@ -46,7 +46,7 @@ Hello from TensorFlow C library version 1.15.0
 ```
 If you have reached this point - congratulations you are ready to use TensorFlow 1.15 *within* OpenFOAM 5. You may utilize the individual READMEs from `ML_RANS/` and `ML_LES` (the latter in-progress) to construct a neural network based turbulence model for using in OpenFOAM.
 
-Points of contact for further assistance - Romit Maulik (rmaulik@anl.gov), Himanshu Sharma (himanshu90sharma@gmail.com), Saumil Patel (spatel@anl.gov). This work was performed by using the resources of the Argonne Leadership Computing Facility, a U.S. Department of Energy (Office of Science) user facility at Argonne National Laboratory, Lemont, IL, USA. 
+Points of contact for further assistance - Romit Maulik (rmaulik@anl.gov), Himanshu Sharma (himanshu.sharma@pnnl.gov), Saumil Patel (spatel@anl.gov). This work was performed by using the resources of the Argonne Leadership Computing Facility, a U.S. Department of Energy (Office of Science) user facility at Argonne National Laboratory, Lemont, IL, USA. 
 
 If you have found this framework informative and useful for any of your research, please cite us
 ```
