@@ -1,6 +1,6 @@
 # TensorFlowFoam
 
-![](misc/repo_logo.png)
+![](/misc/repo_logo.png)
 
 A turbulence model built using a deep neural network trained in Tensorflow 1.15.
 
