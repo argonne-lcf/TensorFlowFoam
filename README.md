@@ -17,12 +17,18 @@ pip install -r requirements.txt
 
 ## Step 2: Download the Tensorflow C API
 
-You can download the TensorFlow C API at `https://www.tensorflow.org/install/lang_c`. Follow instructions there to install on your machine. This tutorial/model is designed for the **Linux CPU only** release. Briefly, the instructions to install are:
+You can download the TensorFlow C API at `https://www.tensorflow.org/install/lang_c`. Follow instructions there to install on your machine. This tutorial/model is designed for the **Linux CPU only** release. Briefly, the instructions to install (if you have root access) are:
 
 1. `sudo tar -C /usr/local -xzf (downloaded file)`
 2. `sudo ldconfig`
 
-and you are good to go. If you want to install the API to an off-nominal location please consult the documentation at the previously mentioned link. 
+and you are good to go. If you do not have root access and need to place the TensorFlow C API at an arbitrary location you may use the following steps:
+
+1. `tar -C /path/to/api -xzf (downloaded file)`
+2. `export LIBRARY_PATH=$LIBRARY_PATH:/path/to/api/lib`
+3. `export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/api/lib`
+
+Note that steps 2 and 3 either need to be added to your `.bashrc` file or need to be executed each time a new terminal session is started. 
 
 ## Step 3: Test that C API is running using Test_TF_C code
 
@@ -40,13 +46,18 @@ int main() {
 }
 ```
 by using 
-```g++ hello_tf.cpp -ltensorflow```
-and 
-```./a.out```
+1. `g++ hello_tf.cpp -ltensorflow`
+2. `./a.out`
 to obtain the following output
 ```
 Hello from TensorFlow C library version 1.15.0
 ```
+If you face an error here (perhaps due to not linking appropriately in the absence of root priveleges) try using:
+```
+g++ -I/path/to/api/include -L/path/to/api/lib hello_tf.cpp -ltensorflow
+```
+for step 2.
+
 If you have reached this point - congratulations you are ready to use TensorFlow 1.15 *within* OpenFOAM 5. You may utilize the individual READMEs from `ML_RANS/` and `ML_LES` (the latter in-progress) to construct a neural network based turbulence model for using in OpenFOAM.
 
 Points of contact for further assistance - Romit Maulik (rmaulik@anl.gov), Himanshu Sharma (himanshu.sharma@pnnl.gov), Saumil Patel (spatel@anl.gov). This work was performed by using the resources of the Argonne Leadership Computing Facility, a U.S. Department of Energy (Office of Science) user facility at Argonne National Laboratory, Lemont, IL, USA. 
