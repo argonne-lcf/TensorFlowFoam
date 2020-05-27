@@ -1,4 +1,7 @@
 # TensorFlowFoam
+
+![](misc/repo_logo.png)
+
 A turbulence model built using a deep neural network trained in Tensorflow 1.15.
 
 The following steps will get you started with a data-driven turbulence model deployed in OpenFOAM 5. I am assuming you have already installed and successfully run OpenFOAM 5 prior to this. Also, this tutorial will be based on Linux (Ubuntu 18.04) at this point of time.
