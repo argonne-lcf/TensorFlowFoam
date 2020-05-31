@@ -5,3 +5,5 @@ D_SMA - Localized dynamic Smagorinsky
 UNS - No model
 
 Runs with `pimpleFoam`
+
+Channel flow at ReTau=395.
