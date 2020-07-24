@@ -7,8 +7,8 @@ x = tf.placeholder(tf.float32, shape=[None, 1, 9], name='input')
 y = tf.placeholder(tf.float32, shape=[None, 1, 1], name='target')
 
 # Trivial model
-h = tf.layers.dense(x, 30, activation='tanh')
-y_ = tf.identity(tf.layers.dense(h, 1), name='output')
+h = tf.layers.dense(x, 30, activation='tanh',kernel_initializer=tf.random_normal_initializer(mean=0.0,stddev=1.0))
+y_ = tf.identity(tf.layers.dense(h, 1, kernel_initializer=tf.random_normal_initializer(mean=0.0,stddev=1.0)), name='output')
 
 # # Using Keras API
 # reshaped_input = keras.layers.Reshape((2,))(x)
