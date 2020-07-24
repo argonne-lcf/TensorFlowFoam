@@ -136,7 +136,7 @@ int ModelPredict(model_t* model, float* batch, int batch_size) {
 void NextBatchForTraining(TF_Tensor** inputs_tensor,
                           TF_Tensor** targets_tensor,
                           float* inputs, float* targets) {
-#define BATCH_SIZE 100
+#define BATCH_SIZE 500
     
   const int64_t ip_dims[] = {BATCH_SIZE, 1, 9}; // Important
   size_t ip_nbytes = BATCH_SIZE * sizeof(float)*9;

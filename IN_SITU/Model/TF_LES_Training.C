@@ -344,17 +344,17 @@ void TF_LES_Training<BasicTurbulenceModel>::run_ml_graph()
 
         target_vals[id][0] = this->Cs_[id];
     }
-       
-    // printf("Initial predictions\n");
-    // if (!ModelPredict(&model, &testdata[0][0], batch_size)) printf("Something wrong with predictions\n");
 
     float testdata[3][9] = {0.0}; // Initializing to zero right now just for simplicity - you can set up a for loop here to test on some real data
     int batch_size = 3;
+       
+    printf("Initial predictions\n");
+    if (!ModelPredict(&model, &testdata[0][0], batch_size)) printf("Something wrong with predictions\n");
 
     printf("Training for a few steps\n");
     for (int i = 0; i < 2000; ++i) {
     if (!ModelRunTrainStep(&model,&input_vals[0][0],&target_vals[0][0])) printf("Something wrong with training\n");
-    } // This step may segfault if the model initialization causes a floating point overflow - rerun if that happens
+    }
 
     printf("Test predictions\n");
     if (!ModelPredict(&model, &testdata[0][0], batch_size)) printf("Something wrong with updating predictions\n");
