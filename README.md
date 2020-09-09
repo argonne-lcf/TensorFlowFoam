@@ -80,3 +80,7 @@ If you have found this framework informative and useful for any of your research
   year={2019}
 }
 ```
+
+## LICENSE
+
+[MIT](LICENSE)
