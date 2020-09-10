@@ -6,7 +6,7 @@ import tensorflow as tf
 from tensorflow import keras, py_func
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.pipeline import Pipeline
-from sklearn.externals import joblib
+import joblib
 from sklearn.metrics import r2_score
 
 np.random.seed(10)
@@ -57,10 +57,10 @@ def load_data():
 def get_model(num_inputs,num_outputs,num_layers,num_neurons):
     # Define model architecture here
     ph_input = keras.Input(shape=(num_inputs,),name='input_placeholder')
-    hidden_layer = keras.layers.Dense(num_neurons,activation='relu')(ph_input)
+    hidden_layer = keras.layers.Dense(num_neurons,activation='tanh')(ph_input)
 
     for layer in range(num_layers):
-        hidden_layer = keras.layers.Dense(num_neurons,activation='relu')(hidden_layer)
+        hidden_layer = keras.layers.Dense(num_neurons,activation='tanh')(hidden_layer)
 
     output = keras.layers.Dense(num_outputs,activation='linear',name='output_value')(hidden_layer)
 
@@ -69,7 +69,6 @@ def get_model(num_inputs,num_outputs,num_layers,num_neurons):
     my_adam = keras.optimizers.Adam(lr=0.001, decay=0.0)
 
     model.compile(optimizer=my_adam,loss={'output_value': 'mean_squared_error'},metrics=[r2_2])
-
     model.summary()
 
     return model
@@ -158,20 +157,3 @@ if __name__ == '__main__':
     num_inputs, training_inputs, num_outputs, training_outputs = load_data()
     model = get_model(num_inputs,num_outputs,6,40)
     fit_model(training_inputs,training_outputs,model,500)
-
-    # Load data for scaling factors
-    total_dataset = np.load('Total_dataset.npy')
-
-    # Save the statistics of the data
-    means = np.mean(total_dataset,axis=0).reshape(1,np.shape(total_dataset)[1])
-    stds = np.std(total_dataset,axis=0).reshape(1,np.shape(total_dataset)[1])
-
-    # Concatenate
-    op_data = np.concatenate((means,stds),axis=0)
-    np.savetxt('means.txt',op_data, delimiter=' ')
-
-    # Make sure you copy this to the means within OpenFOAM case directory in the proper format
-    print('Means:')
-    print(means)
-    print('Stds:')
-    print(stds)
