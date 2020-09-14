@@ -108,7 +108,7 @@ if __name__ == '__main__':
     cx = read_scalar('cx_6')
     cy = read_scalar('cy_6')
     # create array of Re information
-    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*1.75
+    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*1.25
     temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
     total_dataset = np.concatenate((total_dataset,temp_dataset),axis=0)
 
