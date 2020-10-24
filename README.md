@@ -9,17 +9,15 @@ A turbulence model built using a deep neural network trained in Tensorflow 1.15.
 
 2. `ML_LES/`: A tutorial for setting up an artificial neural network surrogate for dynamic Smagorinsky coefficient calculation (i.e., bypass test-filtering).
 
-3. `IN_SITU/`: A tutorial for setting up a neural network training _from within_ OpenFOAM to avoid disk IO.
+3. `IN_SITU/`: A tutorial for setting up a neural network training _from within_ OpenFOAM to avoid disk IO. **NOTE**: We have observed some training instances to suffer from segfaults due to impromper initial (randomized) choices for weights and biases (be careful). 
 
 ## Installation
 
 The following steps will get you started with a data-driven turbulence model deployed in OpenFOAM 5. I am assuming you have already installed and successfully run OpenFOAM 5 prior to this. Also, this tutorial will be based on Linux (Ubuntu 18.04) at this point of time.
 
-While training on the fly is also possible using this procedure - it would need some MPI magic to segregate resources for training and inference at the same time. That is an active topic of research - stay tuned. 
-
 ### Step 1: Install python environment
 
-We suggest the creation of a new virtual environment (either in conda or venv) and the installation of relevant packages for this tutorial using
+We suggest the creation of a new Python 3.6.9 virtual environment (either in conda or venv) and the installation of relevant packages for this tutorial using
 ```
 pip install -r requirements.txt
 ```
