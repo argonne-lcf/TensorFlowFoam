@@ -53,6 +53,7 @@ protobuf==3.11.3
 ptyprocess==0.6.0
 pybind11==2.4.3
 pydot==1.4.1
+pydotplus==2.0.2
 Pygments==2.6.1
 pyparsing==2.4.7
 pyrsistent==0.16.0
