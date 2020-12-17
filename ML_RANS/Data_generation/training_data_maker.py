@@ -47,70 +47,19 @@ def read_vector(filename): # Only x,y components
 if __name__ == '__main__':
     print('Velocity reader file')
 
-    # Read Case 1
-    U = read_vector('U_1')
-    nut = read_scalar('nut_1')
-    y = read_scalar('yWall_1')
-    cx = read_scalar('cx_1')
-    cy = read_scalar('cy_1')
-    # create array of Re information
-    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*2.0
-    total_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
+    heights = [2.0, 1.5, 0.5, 0.75, 1.75, 1.25]
+    total_dataset = []
 
-    # Read Case 2
-    U = read_vector('U_2')
-    nut = read_scalar('nut_2')
-    y = read_scalar('yWall_2')
-    cx = read_scalar('cx_2')
-    cy = read_scalar('cy_2')
-    # create array of Re information
-    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*1.5
-    temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
-    total_dataset = np.concatenate((total_dataset,temp_dataset),axis=0)
-
-    # Read Case 3
-    U = read_vector('U_3')
-    nut = read_scalar('nut_3')
-    y = read_scalar('yWall_3')
-    cx = read_scalar('cx_3')
-    cy = read_scalar('cy_3')
-    # create array of Re information
-    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*0.5
-    temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
-    total_dataset = np.concatenate((total_dataset,temp_dataset),axis=0)
-
-    # Read Case 4
-    U = read_vector('U_4')
-    nut = read_scalar('nut_4')
-    y = read_scalar('yWall_4')
-    cx = read_scalar('cx_4')
-    cy = read_scalar('cy_4')
-    # create array of Re information
-    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*0.75
-    temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
-    total_dataset = np.concatenate((total_dataset,temp_dataset),axis=0)
-
-    # Read Case 5
-    U = read_vector('U_5')
-    nut = read_scalar('nut_5')
-    y = read_scalar('yWall_5')
-    cx = read_scalar('cx_5')
-    cy = read_scalar('cy_5')
-    # create array of Re information
-    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*1.75
-    temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
-    total_dataset = np.concatenate((total_dataset,temp_dataset),axis=0)
-
-    # Read Case 6
-    U = read_vector('U_6')
-    nut = read_scalar('nut_6')
-    y = read_scalar('yWall_6')
-    cx = read_scalar('cx_6')
-    cy = read_scalar('cy_6')
-    # create array of Re information
-    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*1.25
-    temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
-    total_dataset = np.concatenate((total_dataset,temp_dataset),axis=0)
+    # Read Cases
+    for i, h in enumerate(heights, start=1):
+        U = read_vector(f'U_{i}')
+        nut = read_scalar(f'nut_{i}')
+        cx = read_scalar(f'cx_{i}')
+        cy = read_scalar(f'cy_{i}')
+        h = np.ones(shape=(np.shape(U)[0],1),dtype='double') * h
+        temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
+        total_dataset.append(temp_dataset)
+    total_dataset = np.reshape(total_dataset, (-1,6))
 
     print(total_dataset.shape)
 
