@@ -71,11 +71,12 @@ Points of contact for further assistance - Romit Maulik (rmaulik@anl.gov), Himan
 
 If you have found this framework informative and useful for any of your research, please cite us
 ```
-@article{maulik2019accelerating,
-  title={Accelerating RANS simulations using a data-driven framework for eddy-viscosity emulation},
+@inproceedings{maulik2021deploying,
+  title={Deploying deep learning in OpenFOAM with TensorFlow},
   author={Maulik, Romit and Sharma, Himanshu and Patel, Saumil and Lusch, Bethany and Jennings, Elise},
-  journal={arXiv preprint arXiv:1910.10878},
-  year={2019}
+  booktitle={AIAA Scitech 2021 Forum},
+  pages={1485},
+  year={2021}
 }
 ```
 
