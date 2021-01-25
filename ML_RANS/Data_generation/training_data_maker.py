@@ -6,6 +6,9 @@ def replaceZeroes(data):
     data[data == 0] = min_nonzero
     return data
 
+# Change the line below, based on U file
+# Foundation users set it to 20, ESI users set it to 21
+LINE = 20
 
 def read_scalar(filename):
     # Read file
@@ -13,8 +16,8 @@ def read_scalar(filename):
     lines_1 = file.readlines()
     file.close()
 
-    num_cells_internal = int(lines_1[20].strip('\n'))
-    lines_1 = lines_1[22:22+num_cells_internal]
+    num_cells_internal = int(lines_1[LINE].strip('\n'))
+    lines_1 = lines_1[LINE+2:LINE+2+num_cells_internal]
 
     for i in range(len(lines_1)):
         lines_1[i] = lines_1[i].strip('\n')
@@ -30,8 +33,8 @@ def read_vector(filename): # Only x,y components
     lines_1 = file.readlines()
     file.close()
 
-    num_cells_internal = int(lines_1[20].strip('\n'))
-    lines_1 = lines_1[22:22+num_cells_internal]
+    num_cells_internal = int(lines_1[LINE].strip('\n'))
+    lines_1 = lines_1[LINE+2:LINE+2+num_cells_internal]
 
     for i in range(len(lines_1)):
         lines_1[i] = lines_1[i].strip('\n')
