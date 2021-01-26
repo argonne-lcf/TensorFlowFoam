@@ -1,5 +1,5 @@
 import numpy as np
-
+import sys
 
 def replaceZeroes(data):
     min_nonzero = np.min(data[np.nonzero(data)])
@@ -8,7 +8,11 @@ def replaceZeroes(data):
 
 # Change the line below, based on U file
 # Foundation users set it to 20, ESI users set it to 21
-LINE = 20
+# Or run this script as python3 training_data_maker.ps ESI
+if sys.argv[1] == "ESI":
+    LINE = 21
+else:
+    LINE = 20
 
 def read_scalar(filename):
     # Read file
