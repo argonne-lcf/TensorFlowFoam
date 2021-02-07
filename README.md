@@ -37,6 +37,8 @@ and you are good to go. If you do not have root access and need to place the Ten
 
 Note that steps 2 and 3 either need to be added to your `.bashrc` file or need to be executed each time a new terminal session is started. 
 
+**Update:** The new version of the C API are for TensorFlow 2.4 and have not been tested with the contents of this repository. You may obtain the C API tarball for 1.15 in `misc/`.
+
 ### Step 3: Test that C API is running using Test_TF_C code
 
 After Step 2 is complete test that your API is configured correctly by executing the following code (which you can save in `hello_tf.cpp`
