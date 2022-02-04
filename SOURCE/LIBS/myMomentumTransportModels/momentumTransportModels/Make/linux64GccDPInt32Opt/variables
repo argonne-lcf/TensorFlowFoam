@@ -1,0 +1,12 @@
+LESdelta = LES/LESdeltas
+LESfilters = LES/LESfilters
+wallFunctions = derivedFvPatchFields/wallFunctions
+nutWallFunctions = $(wallFunctions)/nutWallFunctions
+epsilonWallFunctions = $(wallFunctions)/epsilonWallFunctions
+omegaWallFunctions = $(wallFunctions)/omegaWallFunctions
+kqRWallFunctions = $(wallFunctions)/kqRWallFunctions
+v2WallFunctions = $(wallFunctions)/v2WallFunctions
+fWallFunctions = $(wallFunctions)/fWallFunctions
+RASBCs = RAS/derivedFvPatchFields
+generalizedNewtonianViscosityModels = laminar/generalizedNewtonian/generalizedNewtonianViscosityModels
+LIB = $(FOAM_USER_LIBBIN)/libmomentumTransportModels

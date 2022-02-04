@@ -1,0 +1,15 @@
+type            pressure;
+libs            ("libfieldFunctionObjects.so");
+
+writeControl    writeTime;
+
+calcCoeff       yes;
+calcTotal       no;
+
+result          cp;
+
+rho             rhoInf;
+rhoInf          1;
+pInf            0;
+UInf            (44.2 0 0);
+

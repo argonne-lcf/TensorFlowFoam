@@ -1,0 +1,7 @@
+type            turbulenceFields;
+libs            ("libfieldFunctionObjects.so");
+
+writeControl    writeTime;
+
+fields          (devReff);
+

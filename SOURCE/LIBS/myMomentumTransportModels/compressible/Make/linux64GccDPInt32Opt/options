@@ -1,0 +1,35 @@
+# 1 "Make/options"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 8 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+
+# 17 "/usr/include/stdc-predef.h" 3 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 8 "<command-line>" 2
+# 1 "Make/options"
+EXE_INC = -I../momentumTransportModels/lnInclude -I$(LIB_SRC)/thermophysicalModels/basic/lnInclude -I$(LIB_SRC)/thermophysicalModels/specie/lnInclude -I$(LIB_SRC)/thermophysicalModels/solidThermo/lnInclude -I$(LIB_SRC)/thermophysicalModels/solidSpecie/lnInclude -I$(LIB_SRC)/finiteVolume/lnInclude -I$(LIB_SRC)/meshTools/lnInclude 
+# 10 "Make/options"
+LIB_LIBS = -lfluidThermophysicalModels -lsolidThermo -lmomentumTransportModels -lspecie -lfiniteVolume -lmeshTools
