@@ -1,3 +1,0 @@
-simpleFoam_ML.C
-
-EXE = $(FOAM_APPBIN)/simpleFoam_ML

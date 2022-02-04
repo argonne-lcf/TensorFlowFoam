@@ -1,4 +1,0 @@
-maketurbulentTransportModels.C
-TF_Model.C
-
-LIB = $(FOAM_USER_LIBBIN)/TF_LES_Training

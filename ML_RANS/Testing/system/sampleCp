@@ -1,8 +1,0 @@
-type            patchProbes;
-libs            ("libsampling.so");
-writeControl    writeTime;
-
-patch           lowerWall;
-probeLocations  ();
-fields          (cp);
-

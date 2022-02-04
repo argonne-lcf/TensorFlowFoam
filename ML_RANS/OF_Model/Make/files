@@ -1,4 +1,0 @@
-maketurbulentTransportModels.C
-tf_utils.C
-
-LIB = $(FOAM_USER_LIBBIN)/ML_SA_CG
